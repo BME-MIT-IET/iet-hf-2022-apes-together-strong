@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - master
+      - static-analysis-tool
+      - build-framework
+      - BDD-test-implementations
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
