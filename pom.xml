@@ -44,5 +44,6 @@
                   <version>2.22.2</version>
               </plugin>
           </plugins>
+          <testSourceDirectory>main/test/java</testSourceDirectory>
       </build>
 </project>
