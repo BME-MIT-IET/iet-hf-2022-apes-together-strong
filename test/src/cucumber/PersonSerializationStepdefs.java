@@ -9,27 +9,31 @@ import org.openrdf.model.Resource;
 
 import java.util.Objects;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class PersonSerializationStepdefs implements En {
     Person aPerson;
     Person aCopy;
     Model aGraph;
     public PersonSerializationStepdefs() {
-        Given("A person named {string}", (String name) -> {
+        Given("User created a person named {string}", (String name) -> {
             aPerson = new Person(name);
         });
-        And("We add them to a graph", () -> {
+        And("User adds the person to a graph", () -> {
             aGraph = RDFMapper.create().writeValue(aPerson);
         });
-        When("They exist", () -> {
-            assertTrue(aPerson.id() != null);
+        When("The person exist", () -> {
+            assertNotNull(aPerson.id());
         });
-        When("The graph has {int} element", (Integer int1) -> {
+        And("The graph has {int} element", (Integer int1) -> {
             assertEquals(int1.intValue(), aGraph.size());
         });
-        And("We can copy them from the graph", () -> {
+
+
+        And("Added it to a graph", () -> {
+            aGraph = RDFMapper.create().writeValue(aPerson);
+        });
+        When("User copies the person from graph", () -> {
             aCopy = RDFMapper.create().readValue(aGraph, Person.class);
         });
         Then("The original and the copy equals", () -> {
