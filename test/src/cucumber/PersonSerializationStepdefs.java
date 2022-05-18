@@ -1,12 +1,18 @@
 package cucumber;
 
+import com.complexible.common.openrdf.model.ModelIO;
 import com.complexible.pinto.Identifiable;
 import com.complexible.pinto.RDFMapper;
+import com.complexible.pinto.RDFMapperTests;
 import com.complexible.pinto.impl.IdentifiableImpl;
+import com.google.common.collect.Lists;
 import io.cucumber.java8.En;
 import org.openrdf.model.Model;
 import org.openrdf.model.Resource;
+import org.openrdf.model.impl.SimpleValueFactory;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import static org.junit.Assert.*;
