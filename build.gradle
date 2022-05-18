@@ -1,10 +1,14 @@
+plugins {
+  id "org.sonarqube" version "3.3"
+}
+
 apply plugin: "idea"
 apply plugin: "java"
 apply plugin: "maven"
 
-task wrapper(type: Wrapper) {
-	gradleVersion = '2.0'
-	distributionUrl = "http://services.gradle.org/distributions/gradle-${gradleVersion}-all.zip"
+wrapper {
+	gradleVersion = '5.0'
+	distributionUrl = "https://services.gradle.org/distributions/gradle-${gradleVersion}-all.zip"
 }
 
 sourceSets {
@@ -68,4 +72,12 @@ dependencies {
 
 tasks.withType(Test) {
 	systemProperties = System.getProperties()
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "BME-MIT-IET_iet-hf-2022-apes-together-strong"
+    property "sonar.organization", "bme-mit-iet-org"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
