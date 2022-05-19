@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.lang.reflect.Field;
 import java.util.Date;
+import java.util.List;
 
 public class TestBeansPackage {
     @Test
@@ -39,6 +40,17 @@ public class TestBeansPackage {
         result = Beans.isPrimitive(Boolean.class);
         org.junit.Assert.assertEquals(true, result);
     }
-
-    //getDeclaredFields()
+    public class fieldTestClass{
+        int n;
+        String s;
+    }
+    @Test
+    public void test_getDeclaredFields(){
+        Iterable<Field> i = Beans.getDeclaredFields(fieldTestClass.class);
+        int counter = 0;
+        for (Field f : i) {
+            counter++;
+        }
+        org.junit.Assert.assertNotEquals(2, counter);
+    }
 }
