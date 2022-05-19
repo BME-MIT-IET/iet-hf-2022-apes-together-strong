@@ -16,7 +16,7 @@ public class Main {
     public static void main(String args[]){
         long time = System.currentTimeMillis();
         long creationTimeSum=0;
-        for(int i=0; i<2000; i++){
+        for(int i=0; i<20000; i++){
             Thread th=new Thread();
             th.run();
             Model aGraph = RDFMapper.create().writeValue(new Person("Michael Grove"+i));
@@ -31,7 +31,7 @@ public class Main {
         long time2 =System.currentTimeMillis();
         long readTimeSum =0;
 
-        for(int j=0; j<2000; j++) {
+        for(int j=0; j<20000; j++) {
             Thread th = new Thread();
             th.run();
             final Person aPerson = RDFMapper.create().readValue(aGraph, Person.class);
