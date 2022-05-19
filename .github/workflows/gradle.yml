@@ -9,7 +9,14 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ master ]
+    branches: 
+      - master
+      - static-analysis-tool
+      - build-framework
+      - BDD-test-implementations
+      - performance_testing
+      - code-coverage
+      - code_review
   pull_request:
     branches: [ master ]
 
